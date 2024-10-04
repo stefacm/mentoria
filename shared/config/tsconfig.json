@@ -3,142 +3,141 @@
  * more info in https://www.typescriptlang.org/tsconfig/
  */
 
- {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "compilerOptions": {
-      // ------------ TYPE CHECKING ------------ //
-      "allowUnreachableCode": false,
-      "allowUnusedLabels": false,
-      "alwaysStrict": true,
-      "exactOptionalPropertyTypes": false,
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitAny": true,
-      "noImplicitOverride": true,
-      "noImplicitReturns": true,
-      "noImplicitThis": true,
-      "noPropertyAccessFromIndexSignature": false, // Avoid need to use index access; object['key'] when key is not typed ([key: string]: ...)
-      "noUncheckedIndexedAccess": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "strictBindCallApply": true,
-      "strictFunctionTypes": true,
-      "strictNullChecks": true,
-      "strictPropertyInitialization": true,
-      "useUnknownInCatchVariables": true,
-  
-      // ------------MODULES ------------ //
-      "allowArbitraryExtensions": true,
-      "allowImportingTsExtensions": true,
-      // "allowUmdGlobalAccess": true,
-      // "customConditions": [],
-      "module": "ESNext",
-      "moduleResolution": "bundler", // sonar < 10.1 will fails, use 'node' instead
-      // "moduleSuffixes": [],
-      "noResolve": false,
-      "resolveJsonModule": true,
-      "resolvePackageJsonExports": true,
-      "resolvePackageJsonImports": true,
-      // "rootDir": "src",
-      // "rootDirs": ['src', 'node_modules'],
-      // "typeRoots": ["node_modules/@types"]
-      // "types": ["node"],
-  
-      // ------------ EMIT ------------ //
-      // "declaration": false,
-      // "declarationDir": "types",
-      // "declarationMap": false,
-      // "downlevelIteration": false,
-      // "emitBOM": false,
-      // "emitDeclarationOnly": true,
-      // "importHelpers": false,
-      // "verbatimModuleSyntax": true,
-      // "inlineSourceMap": false,
-      // "inlineSources": false,
-      // "mapRoot": "",
-      // "newLine": "LF",
-      "noEmit": true,
-      "noEmitHelpers": true,
-      "noEmitOnError": true,
-      // "outDir": "dist",
-      // "outFile": "dist/index.js",
-      // "preserveConstEnums": true,
-      // "preserveValueImports": true,
-      // "removeComments": true,
-      // "sourceMap": false,
-      // "sourceRoot": "src",
-      // "stripInternals": true,
-  
-      // ------------JS SUPPORT ------------ //
-      "allowJs": true,
-      "checkJs": false,
-      // "maxNodeModuleJsDepth": 2,
-  
-      // ------------ EDITOR SUPPORT ------------ //
-      "disableSizeLimit": false,
-      // "plugins": [],
-  
-      // ------------ INTEROP CONSTRAINTS ------------ //
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "isolatedModules": true,
-      "preserveSymlinks": false,
-      "verbatimModuleSyntax": true,
-  
-      // ------------ LANGUAGE AND ENVIRONMENT ------------ //
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "jsx": "preserve",
-      "jsxFactory": "React.createElement",
-      "jsxFragmentFactory": "React.Fragment",
-      "jsxImportSource": null,
-      "lib": ["ESNext", "DOM", "DOM.Iterable"],
-      "moduleDetection": "auto",
-      "noLib": false,
-      // "reactNamespace": "React",
-      "target": "ESNext",
-      "useDefineForClassFields": true,
-  
-      // ------------ COMPILER DIAGNOSTICS ------------ //
-      "diagnostics": true,
-      "explainFiles": false,
-      "extendedDiagnostics": false,
-      "generateCpuProfile": "profile.cpuprofile",
-      "listEmittedFiles": false,
-      "listFiles": false,
-      "traceResolution": false,
-  
-      // ------------ PROJECTS ------------ //
-      // "paths": { "@/*": ["./src/*"] },
-      "composite": false,
-      "disableReferencedProjectLoad": false,
-      "disableSolutionSearching": false,
-      "incremental": false,
-      // "tsBuildInfoFile": "tsconfig.tsbuildinfo",
-  
-      // ------------ OUTPUT FORMATTING ------------ //
-      "noErrorTruncation": false,
-      "preserveWatchOutput": false,
-      "pretty": true,
-  
-      // ------------ COMPLETENESS ------------ //
-      "skipLibCheck": true,
-  
-      // ------------ CLI ------------ //
-      "assumeChangesOnlyAffectDirectDependencies": true
-    },
-    // ------------ PATHS ------------ //
-    "exclude": ["./node_modules/**/*", "./build/**/*"],
-  
-    // "include": [
-    //   "./src/**/*",
-    //   "./*"
-    // ],
-  
-    // ------------ WATCHING ------------ //
-    // "watchOptions": {},
-  
-    // ------------ TYPE ACQUISITION ------------ //
-    // "typeAcquisition": {}
-  }
-  
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // ------------ TYPE CHECKING ------------ //
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": false, // Avoid need to use index access; object['key'] when key is not typed ([key: string]: ...)
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+
+    // ------------MODULES ------------ //
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    // "allowUmdGlobalAccess": true,
+    // "customConditions": [],
+    "module": "ESNext",
+    "moduleResolution": "bundler", // sonar < 10.1 will fails, use 'node' instead
+    // "moduleSuffixes": [],
+    "noResolve": false,
+    "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
+    // "rootDir": "src",
+    // "rootDirs": ['src', 'node_modules'],
+    // "typeRoots": ["node_modules/@types"]
+    // "types": ["node"],
+
+    // ------------ EMIT ------------ //
+    // "declaration": false,
+    // "declarationDir": "types",
+    // "declarationMap": false,
+    // "downlevelIteration": false,
+    // "emitBOM": false,
+    // "emitDeclarationOnly": true,
+    // "importHelpers": false,
+    // "verbatimModuleSyntax": true,
+    // "inlineSourceMap": false,
+    // "inlineSources": false,
+    // "mapRoot": "",
+    // "newLine": "LF",
+    "noEmit": true,
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    // "outDir": "dist",
+    // "outFile": "dist/index.js",
+    // "preserveConstEnums": true,
+    // "preserveValueImports": true,
+    // "removeComments": true,
+    // "sourceMap": false,
+    // "sourceRoot": "src",
+    // "stripInternals": true,
+
+    // ------------JS SUPPORT ------------ //
+    "allowJs": true,
+    "checkJs": false,
+    // "maxNodeModuleJsDepth": 2,
+
+    // ------------ EDITOR SUPPORT ------------ //
+    "disableSizeLimit": false,
+    // "plugins": [],
+
+    // ------------ INTEROP CONSTRAINTS ------------ //
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "preserveSymlinks": false,
+    "verbatimModuleSyntax": true,
+
+    // ------------ LANGUAGE AND ENVIRONMENT ------------ //
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    "jsxImportSource": null,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleDetection": "auto",
+    "noLib": false,
+    // "reactNamespace": "React",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+
+    // ------------ COMPILER DIAGNOSTICS ------------ //
+    "diagnostics": true,
+    "explainFiles": false,
+    "extendedDiagnostics": false,
+    "generateCpuProfile": "profile.cpuprofile",
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "traceResolution": false,
+
+    // ------------ PROJECTS ------------ //
+    // "paths": { "@/*": ["./src/*"] },
+    "composite": false,
+    "disableReferencedProjectLoad": false,
+    "disableSolutionSearching": false,
+    "incremental": false,
+    // "tsBuildInfoFile": "tsconfig.tsbuildinfo",
+
+    // ------------ OUTPUT FORMATTING ------------ //
+    "noErrorTruncation": false,
+    "preserveWatchOutput": false,
+    "pretty": true,
+
+    // ------------ COMPLETENESS ------------ //
+    "skipLibCheck": true,
+
+    // ------------ CLI ------------ //
+    "assumeChangesOnlyAffectDirectDependencies": true
+  },
+  // ------------ PATHS ------------ //
+  "exclude": ["./node_modules/**/*", "./build/**/*"],
+
+  // "include": [
+  //   "./src/**/*",
+  //   "./*"
+  // ],
+
+  // ------------ WATCHING ------------ //
+  // "watchOptions": {},
+
+  // ------------ TYPE ACQUISITION ------------ //
+  // "typeAcquisition": {}
+}
