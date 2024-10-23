@@ -3,7 +3,8 @@
  * more info in https://eslint.org/docs/latest/use/configure/configuration-files/
  */
 
-import astro from 'eslint-plugin-astro';
+import { configs } from 'eslint-plugin-astro';
+import { configs as tsConfigs } from 'typescript-eslint';
 
 /** @type {import("eslint").Linter.Config} */
 export default [
@@ -12,5 +13,9 @@ export default [
    * - eslint-plugin-astro
    * - astro-eslint-parser
    */
-  ...astro.configs['flat/jsx-a11y-strict'],
+  ...configs['flat/jsx-a11y-strict'],
+  {
+    files: ['**/*.astro'],
+    ...tsConfigs.disableTypeChecked,
+  },
 ];

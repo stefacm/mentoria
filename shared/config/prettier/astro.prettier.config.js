@@ -3,12 +3,12 @@
  * more info in https://prettier.io/docs/en/configuration/
  */
 
+/**
+ * Astro config dependencies
+ * - prettier-plugin-astro
+ */
 /** @type {import("prettier").Options} */
 export default {
-  /**
-   * Astro config dependencies
-   * - prettier-plugin-astro
-   */
   overrides: [
     {
       files: '*.astro',

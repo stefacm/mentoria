@@ -10,6 +10,7 @@ export default {
   bracketSpacing: true,
   endOfLine: 'lf',
   jsxSingleQuote: false,
+  plugins: [],
   printWidth: 100,
   quoteProps: 'as-needed',
   semi: true,

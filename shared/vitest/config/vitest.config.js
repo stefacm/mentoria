@@ -9,17 +9,16 @@ import { defineConfig } from 'vitest/config';
 /**
  * Vitest Base config dependencies
  * - vitest
- * - jsdom
  * - @vitest/coverage-istanbul
  */
 export default defineConfig({
   test: {
     coverage: {
       all: true,
+      extension: ['.js', '.cjs', '.mjs', '.ts', '.mts', '.tsx', '.jsx'],
       provider: 'istanbul',
       reporter: ['html-spa', 'lcov', 'text'],
     },
-    environment: 'jsdom',
     globals: true,
     outputFile: {
       junit: 'reports/junit.xml',
@@ -29,7 +28,7 @@ export default defineConfig({
         singleThread: true,
       },
     },
-    reporters: ['default', 'junit'],
+    reporters: ['default', 'junit', ...(process.env.GITHUB_ACTIONS ? ['github-actions'] : [])],
     setupFiles: [resolve(__dirname, './test.setup.ts')],
   },
 });

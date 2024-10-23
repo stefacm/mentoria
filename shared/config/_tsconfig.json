@@ -100,7 +100,7 @@
     "useDefineForClassFields": true,
 
     // ------------ COMPILER DIAGNOSTICS ------------ //
-    "diagnostics": true,
+    "diagnostics": false,
     "explainFiles": false,
     "extendedDiagnostics": false,
     "generateCpuProfile": "profile.cpuprofile",
@@ -128,7 +128,7 @@
     "assumeChangesOnlyAffectDirectDependencies": true
   },
   // ------------ PATHS ------------ //
-  "exclude": ["./node_modules/**/*", "./build/**/*"],
+  // "exclude": ["./node_modules/**/*", "./build/**/*"],
 
   // "include": [
   //   "./src/**/*",

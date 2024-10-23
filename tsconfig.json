@@ -1,6 +1,11 @@
-{
+/**
+ * This file can be used to define Typescript configuration,
+ * more info in https://www.typescriptlang.org/tsconfig/
+ */
+
+ {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./shared/config/tsconfig.json",
+  "extends": "./shared/config/_tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -9,9 +14,5 @@
       "@shared/*": ["./shared/*"],
     },
   },
-  "include": [
-    "./shared/**/*",
-    "./src/**/*",
-    "./*"
-  ],
+  "include": ["./shared/**/*", "./src/**/*", "./*"],
 }

@@ -3,7 +3,8 @@
  */
 
 export default {
-  API_URL: import.meta.env.PUBLIC_API_URL,
+  APP_BASE_PATH: import.meta.env.BASE_URL,
+  APP_MODE: import.meta.env.MODE,
   APP_NAME: import.meta.env.PUBLIC_APP_NAME,
   // more env variables...
 };

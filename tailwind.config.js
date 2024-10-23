@@ -11,7 +11,7 @@ export default {
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
     './shared/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
-  darkMode: ['selector', '[data-theme="dark"]'],
+  darkMode: ['selector'],
   plugins: [],
   theme: {
     extend: {
@@ -19,6 +19,11 @@ export default {
         fadeIn: 'fadeIn .25s ease-in-out',
         fadeOut: 'fadeOut .25s ease-in-out',
         toast: 'toast 5s ease-in-out',
+      },
+      colors: {
+        'primary-dark': '#007ae6',
+        'primary-light': '#4dacff',
+        'primary-main': '#0088ff',
       },
       fontFamily: {
         mono: [...fontFamily.mono],

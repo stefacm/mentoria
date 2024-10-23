@@ -4,33 +4,43 @@
  */
 
 import pluginJs from '@eslint/js';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginImportX from 'eslint-plugin-import-x';
 import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { configs } from 'typescript-eslint';
 
 /** @type {import("eslint").Linter.Config} */
 export default [
   /**
    * Base config with Typescript dependencies
    * - eslint
+   * - globals
    * - typescript-eslint
    * - @eslint/js
    * - @types/eslint__js
+   * - eslint-plugin-import-x
+   * - eslint-import-resolver-typescript
+   * - @typescript-eslint/parser
    */
   ...[
-    ...tseslint.configs.strictTypeChecked,
-    ...tseslint.configs.stylisticTypeChecked,
+    ...configs.strictTypeChecked,
+    ...configs.stylisticTypeChecked,
+    eslintPluginImportX.flatConfigs.recommended,
+    eslintPluginImportX.flatConfigs.typescript,
     {
       files: ['**/*.{js,ts,jsx,tsx,astro}'],
-      ignores: ['build/*', 'static/*'],
+      ignores: ['build/**', 'dist/**', 'static/**'],
       languageOptions: {
         globals: { ...globals.browser, ...globals.node },
+        parser: tsParser,
         parserOptions: {
           ecmaVersion: 'latest',
-          project: true,
+          projectService: true,
           sourceType: 'module',
-          tsconfigRootDir: './tsconfig.json',
+          tsconfigRootDir: '../../../.',
+          warnOnUnsupportedTypeScriptVersion: false,
         },
       },
       ...pluginJs.configs.recommended,
@@ -42,6 +52,7 @@ export default [
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/restrict-template-expressions': 'off',
         '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
+        'import-x/no-named-as-default-member': 'off',
         'no-console': 'warn',
         'no-nested-ternary': 'warn',
       },
@@ -81,7 +92,7 @@ export default [
             'object',
             'unknown',
           ],
-          internalPattern: ['@shared/**', '@/**', '@static/**'],
+          internalPattern: ['@shared/**', '@/**'],
           type: 'alphabetical',
         },
       ],

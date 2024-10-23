@@ -4,13 +4,10 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    @apply scroll-smooth text-[14px] leading-4 antialiased;
   }
 
   body {
-    @apply bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-50;
+    @apply bg-slate-100 text-slate-800 dark:bg-gray-900 dark:text-slate-50;
   }
 }

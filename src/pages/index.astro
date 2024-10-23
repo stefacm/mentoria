@@ -1,19 +1,17 @@
 ---
 import Comp from '@/components/comp';
-
-import '../index.css';
+import env from '@/env';
+import '@/index.css';
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-    <meta content="width=device-width" name="viewport" />
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Astro</title>
+    <link href={`${env.APP_BASE_PATH}favicon.svg`} rel="icon" type="image/svg+xml" />
   </head>
-  <body class="flex min-h-svh items-center justify-center">
-    <h1 class="text-3xl font-bold text-sky-800">Astro</h1>
-    <p class="max-w-[200px] leading-4">Esto es un gran texto para probar</p>
+  <body id="root">
     <Comp client:idle />
   </body>
 </html>

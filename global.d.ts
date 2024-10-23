@@ -1,8 +1,12 @@
+/**
+ * This file can be used to define Global Typescript types
+ */
+
 /// <reference types="astro/client" />
 /// <reference types="vitest/globals" />
+/// <reference types="shared/config/global" />
 
 interface ImportMetaEnv {
-  readonly PUBLIC_API_URL: string;
   readonly PUBLIC_APP_NAME: string;
   // more env variables...
 }
@@ -10,6 +14,3 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
-
-type Fn = () => void;
-type Reject<T> = (reason: T) => void;
