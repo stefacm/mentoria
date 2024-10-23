@@ -1,0 +1,19 @@
+---
+import env from '@/env';
+import '@/index.css';
+
+import Header from './header.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Astro</title>
+    <link href={`${env.APP_BASE_PATH}favicon.svg`} rel="icon" type="image/svg+xml" />
+  </head>
+  <body class="flex h-svh flex-col items-center px-6" id="root">
+    <Header />
+    <slot />
+  </body>
+</html>

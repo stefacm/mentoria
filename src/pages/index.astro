@@ -1,17 +1,8 @@
 ---
-import Comp from '@/components/comp';
-import env from '@/env';
 import '@/index.css';
+import Base from '@/layout/base.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Astro</title>
-    <link href={`${env.APP_BASE_PATH}favicon.svg`} rel="icon" type="image/svg+xml" />
-  </head>
-  <body id="root">
-    <Comp client:idle />
-  </body>
-</html>
+<Base>
+  <main></main>
+</Base>
