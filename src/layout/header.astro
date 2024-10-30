@@ -1,16 +1,15 @@
 ---
 import logo from '@static/assets/favicon.svg?raw';
-// TODO: arreglar padding de select
 ---
 
 <header class="mt-14 flex w-full max-w-3xl items-center justify-between">
   <Fragment set:html={logo} />
-  <div class="flex items-center gap-4">
-    <select class="border-r border-gray-400 bg-transparent pr-4">
+  <div class="flex h-full max-h-8 items-center gap-4">
+    <select class="bg-transparent pr-4">
       <option>Sans Serif</option>
       <option>Serif</option>
       <option>Mono</option>
     </select>
-    <button>🌝</button>
+    <button class="h-full border-l border-gray-400 pl-4">🌝</button>
   </div>
 </header>
