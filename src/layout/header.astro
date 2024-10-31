@@ -3,7 +3,9 @@ import logo from '@static/assets/favicon.svg?raw';
 ---
 
 <header class="mt-14 flex w-full max-w-3xl items-center justify-between">
-  <Fragment set:html={logo} />
+  <span class="max-h-8 max-w-8">
+    <Fragment set:html={logo} />
+  </span>
   <div class="flex h-full max-h-8 items-center gap-4">
     <select class="bg-transparent pr-4">
       <option>Sans Serif</option>
