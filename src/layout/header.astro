@@ -12,6 +12,25 @@ import logo from '@static/assets/favicon.svg?raw';
       <option>Serif</option>
       <option>Mono</option>
     </select>
-    <button class="h-full border-l border-gray-400 pl-4">🌝</button>
+    <button class="h-full border-l border-gray-400 pl-4" id="toggle-theme">
+      <span class="dark:hidden">🌝</span>
+      <span class="hidden dark:inline">🌚</span>
+    </button>
   </div>
 </header>
+
+<script is:inline>
+  document.getElementById('toggle-theme')?.addEventListener('click', () => {
+    const theme =
+      localStorage.theme ??
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+    if (theme === 'dark') {
+      localStorage.theme = 'light';
+      document.documentElement.classList.remove('dark');
+    } else {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+    }
+  });
+</script>

@@ -11,6 +11,20 @@ import Header from './header.astro';
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Astro</title>
     <link href={`${env.APP_BASE_PATH}favicon.svg`} rel="icon" type="image/svg+xml" />
+    <script is:inline>
+      const readTheme = () => {
+        const theme =
+          localStorage.theme ??
+          (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      };
+
+      readTheme();
+
+      const matchMedia = window.matchMedia('(prefers-color-scheme: light)');
+      matchMedia.addEventListener('change', readTheme);
+    </script>
   </head>
   <body class="flex h-svh flex-col items-center px-6" id="root">
     <Header />
