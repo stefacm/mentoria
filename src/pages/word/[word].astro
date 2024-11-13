@@ -1,0 +1,17 @@
+---
+export const getStaticPaths = async () => {
+  return [
+    {
+      params: {
+        word: 1,
+      },
+    },
+  ];
+};
+
+const props = Astro.params;
+
+// TODO: Hacer componente de react con un mock para maquetar el resultado
+---
+
+<div>{props.word}</div>
