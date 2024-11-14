@@ -4,6 +4,7 @@ import '@/index.css';
 
 import Header from './header.astro';
 import Search from '@/components/react/search';
+import Result from '@/components/react/result';
 ---
 
 <html lang="en">
@@ -27,9 +28,10 @@ import Search from '@/components/react/search';
       matchMedia.addEventListener('change', readTheme);
     </script>
   </head>
-  <body class="flex h-svh flex-col items-center gap-12 px-6" id="root">
+  <body class="flex min-h-svh flex-col items-center gap-12 px-6" id="root">
     <Header />
     <Search client:only="react" />
+    <Result client:only="react" />
     <slot />
   </body>
 </html>
