@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import Play from '@static/assets/play.svg?react';
 
@@ -6,6 +6,16 @@ import mockResult from '@/mocks/result.json';
 
 const Result = () => {
   const { meanings, phonetic, phonetics, sourceUrls, word } = mockResult;
+  const audioUrl = phonetics.find((item) => item.audio !== '')?.audio;
+  const audioRef = useRef(audioUrl ? new Audio(audioUrl) : null);
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch((error) => {
+        console.error("Error al reproducir el audio:", error);
+      });
+    }
+  };
 
   return (
     <div className="flex h-full w-full max-w-3xl flex-col gap-8 md:gap-10">
@@ -14,9 +24,14 @@ const Result = () => {
           <h1 className="text-2xl font-bold md:text-6xl">{word}</h1>
           <p className="text-lg text-purple-600 md:text-2xl">{phonetic}</p>
         </div>
-        <button className="flex h-12 w-12 items-center justify-center rounded-full bg-transparent hover:bg-black hover:bg-opacity-5 focus:outline-purple-500 md:h-20 md:w-20">
-          <Play className="h-12 w-12 md:h-20 md:w-20" height={20} width={20} />
-        </button>
+        {audioUrl && (
+          <button
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-transparent hover:bg-black hover:bg-opacity-5 focus:outline-purple-500 md:h-20 md:w-20"
+            onClick={playAudio}
+          >
+            <Play className="h-12 w-12 md:h-20 md:w-20" height={20} width={20} />
+          </button>
+        )}
       </section>
       {meanings.map((mean) => (
         <section className="flex flex-col gap-8 md:gap-10" key={mean.partOfSpeech}>
