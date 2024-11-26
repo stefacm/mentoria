@@ -1,8 +1,13 @@
 ---
+import { ResultWithServiceProvider } from '@/components/react/result';
+import Search from '@/components/react/search';
 import '@/index.css';
 import Base from '@/layout/base.astro';
 ---
 
 <Base>
-  <main></main>
+  <main class="flex min-h-svh w-full flex-col items-center gap-12">
+    <Search client:only="react" />
+    <ResultWithServiceProvider client:only="react" />
+  </main>
 </Base>

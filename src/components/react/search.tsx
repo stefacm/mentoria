@@ -1,16 +1,20 @@
 import React, { type ChangeEventHandler, type KeyboardEventHandler, useState } from 'react';
 
 const Search = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(new URLSearchParams(location.search).get('word') ?? '');
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
     setSearch(event.currentTarget.value);
   };
 
   const handleOnKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-    if (event.key === 'Enter') {
-      location.replace(`/word/${search}`);
+    if (event.key !== 'Enter') {
+      return;
     }
+
+    const params = new URLSearchParams();
+    params.append('word', search);
+    location.replace(`/?${params}`);
   };
 
   return (

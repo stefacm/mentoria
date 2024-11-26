@@ -3,8 +3,6 @@ import env from '@/env';
 import '@/index.css';
 
 import Header from './header.astro';
-import Search from '@/components/react/search';
-import Result from '@/components/react/result';
 ---
 
 <html lang="en">
@@ -30,8 +28,6 @@ import Result from '@/components/react/result';
   </head>
   <body class="flex min-h-svh flex-col items-center gap-12 px-6" id="root">
     <Header />
-    <Search client:only="react" />
-    <Result client:only="react" />
     <slot />
   </body>
 </html>
