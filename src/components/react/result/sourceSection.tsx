@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { type FC } from 'react';
+
+import hexGenerator from '@shared/utils/hexGenerator';
 
 interface SourceSectionProps {
   sourceUrls: string[];
 }
 
-const SourceSection: React.FC<SourceSectionProps> = ({ sourceUrls }) => (
+const SourceSection: FC<SourceSectionProps> = ({ sourceUrls }) => (
   <section>
-    <div className="flex-grow border-t border-gray-300" />
+    <hr className="border-slate-300 dark:border-slate-700" />
     <p className="mt-6 flex flex-wrap gap-5 text-sm md:mt-5">
       <span className="w-full text-gray-500 underline md:w-auto">Source</span>
-      {sourceUrls.map((url, index) => (
+      {sourceUrls.map((url) => (
         <a
           className="underline dark:text-white"
           href={url}
-          key={index}
+          key={hexGenerator()}
           rel="noreferrer"
           target="_blank"
         >
