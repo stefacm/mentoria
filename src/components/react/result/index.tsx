@@ -18,6 +18,9 @@ const Result = () => {
   if (isFetching)
     return (
       <div className="flex h-full w-full max-w-3xl flex-col gap-8 md:gap-10">
+        <Shimmer />
+        <Shimmer />
+        <Shimmer />
       </div>
     );
 
