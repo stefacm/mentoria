@@ -25,10 +25,12 @@ const Result = () => {
       </div>
     );
 
-  if (!data?.data.length || isError) {
-    const errorData = error?.response?.data as unknown as ServiceError | undefined; // TODO: Preguntar a Gio como se podría asignarle un tipo correctamente a error data
+  if (!data?.data.length && isError) {
+    const errorData = error.response?.data as unknown as ServiceError | undefined; // TODO: Preguntar a Gio como se podría asignarle un tipo correctamente a error data
     return <NoResults {...errorData} />;
   }
+
+  if (!data?.data.length) return null;
 
   const { meanings, phonetic, phonetics, sourceUrls } = data.data.at(0)!;
   const audioUrl = phonetics.find((item) => item.audio !== '')?.audio;
