@@ -42,6 +42,12 @@ export interface ServiceResponse {
   word: string;
 }
 
+export interface ServiceError {
+  message: string;
+  resolution: string;
+  title: string;
+}
+
 export const GET_DICTIONARY = new AxiosService<never, never, ServiceResponse[]>({
   baseURL: 'https://api.dictionaryapi.dev/api/v2/entries/en/',
   key: 'dictionary',
