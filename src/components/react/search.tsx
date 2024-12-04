@@ -1,31 +1,46 @@
-import React, { type ChangeEventHandler, type KeyboardEventHandler, useState } from 'react';
+import React, { type KeyboardEventHandler, useState } from 'react';
 
 const Search = () => {
   const [search, setSearch] = useState(new URLSearchParams(location.search).get('word') ?? '');
+  const [isEmpty, setIsEmpty] = useState(false);
 
-  const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setSearch(event.currentTarget.value);
+  const handleValidation = () => {
+    const isValid = search.trim() !== '';
+    setIsEmpty(!isValid);
+    return isValid;
   };
 
-  const handleOnKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-    if (event.key !== 'Enter') {
-      return;
+  const handleAction = () => {
+    if (handleValidation()) {
+      const params = new URLSearchParams({ word: search.trim() });
+      location.replace(`/?${params}`);
     }
+  };
 
-    const params = new URLSearchParams();
-    params.append('word', search);
-    location.replace(`/?${params}`);
+  const handleOnKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === 'Enter') handleAction();
+  };
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    if (isEmpty) setIsEmpty(false);
   };
 
   return (
-    <input
-      className="w-full max-w-3xl rounded-2xl bg-gray-200 px-4 py-3 font-bold outline-none focus:outline-purple-500 dark:bg-gray-800 dark:text-white"
-      onChange={handleSearch}
-      onKeyDown={handleOnKeyDown}
-      placeholder="Search for any word…"
-      type="search"
-      value={search}
-    />
+    <div className="w-full max-w-3xl">
+      <input
+        className={`w-full rounded-2xl bg-gray-200 px-4 py-3 font-bold outline-none dark:bg-gray-800 dark:text-white ${
+          isEmpty ? 'outline-red-500' : 'focus:outline-purple-500'
+        }`}
+        onBlur={handleValidation}
+        onChange={handleSearch}
+        onKeyDown={handleOnKeyDown}
+        placeholder="Search for any word…"
+        type="search"
+        value={search}
+      />
+      {isEmpty && <p className="mt-3 text-red-500">Whoops, can’t be empty…</p>}
+    </div>
   );
 };
 
