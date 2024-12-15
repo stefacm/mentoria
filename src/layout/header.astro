@@ -7,10 +7,13 @@ import logo from '@static/assets/favicon.svg?raw';
     <Fragment set:html={logo} />
   </span>
   <div class="flex h-full max-h-8 items-center gap-4">
-    <select class="bg-transparent pr-4">
-      <option>Sans Serif</option>
-      <option>Serif</option>
-      <option>Mono</option>
+    <select
+      class="min-h-6 min-w-24 bg-transparent pr-4 font-bold focus:outline-purple-500"
+      id="fontSelector"
+    >
+      <option value="font-sans">Sans Serif</option>
+      <option value="font-serif">Serif</option>
+      <option value="font-mono">Mono</option>
     </select>
     <button class="h-full border-l border-gray-400 pl-4" id="toggle-theme">
       <span class="dark:hidden">🌝</span>
@@ -32,5 +35,24 @@ import logo from '@static/assets/favicon.svg?raw';
       localStorage.theme = 'dark';
       document.documentElement.classList.add('dark');
     }
+  });
+</script>
+
+<script is:inline>
+  const applyFont = (fontClass) => {
+    document.body.classList.remove('font-mono', 'font-sans', 'font-serif');
+    document.body.classList.add(fontClass);
+  };
+
+  const savedFont = localStorage.getItem('fontSelector');
+
+  if (savedFont) {
+    applyFont(savedFont);
+    fontSelector.value = savedFont;
+  }
+
+  document.getElementById('fontSelector')?.addEventListener('change', ({ currentTarget }) => {
+    localStorage.setItem('fontSelector', currentTarget.value);
+    applyFont(currentTarget.value);
   });
 </script>
