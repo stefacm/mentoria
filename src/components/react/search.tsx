@@ -1,4 +1,4 @@
-import React, { type KeyboardEventHandler, useState } from 'react';
+import React, { type ChangeEvent, type KeyboardEventHandler, useState } from 'react';
 
 const Search = () => {
   const [search, setSearch] = useState(new URLSearchParams(location.search).get('word') ?? '');
@@ -21,7 +21,7 @@ const Search = () => {
     if (e.key === 'Enter') handleAction();
   };
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
     if (isEmpty) setIsEmpty(false);
   };
@@ -33,7 +33,7 @@ const Search = () => {
           isEmpty ? 'outline-red-500' : 'focus:outline-purple-500'
         }`}
         onBlur={handleValidation}
-        onChange={handleSearch}
+        onChange={handleOnChange}
         onKeyDown={handleOnKeyDown}
         placeholder="Search for any word…"
         type="search"
