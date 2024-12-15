@@ -26,7 +26,7 @@ const Result = () => {
     );
 
   if (!data?.data.length && isError) {
-    const errorData = error.response?.data as unknown as ServiceError | undefined; // TODO: Preguntar a Gio como se podría asignarle un tipo correctamente a error data
+    const errorData = error.response?.data as ServiceError | undefined;
     return <NoResults {...errorData} />;
   }
 
