@@ -2,8 +2,6 @@
  * This file can be used to define DOM test utils
  */
 
-import { screen } from '@testing-library/dom';
-
 //////////////////////////////////////////////////////////////
 export const locationAssignMock = (href = 'https://localhost') => {
   const assign = vi.fn();
