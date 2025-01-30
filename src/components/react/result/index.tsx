@@ -10,18 +10,18 @@ import NoResults from './noResults';
 import SourceSection from './sourceSection';
 
 const Result = () => {
-  const word = new URLSearchParams(location.search).get('word');
+  const word = new URLSearchParams(location.search).get('word') ?? undefined;
   const { data, error, isError, isFetching } = useServiceQuery(GET_DICTIONARY, {
-    axios: { url: word! },
+    axios: { url: word },
     enabled: !!word,
   });
 
   if (isFetching)
     return (
       <div className="flex h-full w-full max-w-3xl flex-col gap-8 md:gap-10">
-        <Shimmer />
-        <Shimmer />
-        <Shimmer />
+        <Shimmer data-testid="shimmer" />
+        <Shimmer data-testid="shimmer" />
+        <Shimmer data-testid="shimmer" />
       </div>
     );
 
