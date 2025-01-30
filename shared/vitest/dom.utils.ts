@@ -26,3 +26,15 @@ export const locationReplaceMock = (href = 'https://localhost') => {
   window.location.replace = replace;
   return replace;
 };
+
+//////////////////////////////////////////////////////////////
+export const audioPlayMock = (audioPlay = vi.fn().mockResolvedValue(undefined)) => {
+  Object.defineProperty(global.window.HTMLMediaElement.prototype, 'play', {
+    configurable: true,
+    get() {
+      return audioPlay;
+    },
+  });
+
+  return audioPlay;
+};
