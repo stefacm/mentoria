@@ -20,23 +20,18 @@ const MeaningSection: FC<MeaningProps> = ({ meaning }) => (
     </div>
     <div className="flex flex-col gap-7">
       <h3 className="text-base font-normal text-gray-500 md:text-xl">Meaning</h3>
-      <div className="flex flex-col gap-3 pl-12">
+      <ul className="flex list-outside list-disc flex-col gap-3 pl-12 text-gray-700 marker:text-purple-600 dark:text-white">
         {meaning.definitions.map((def) => (
-          <ul
-            className="list-outside list-disc text-gray-700 marker:text-purple-600 dark:text-white"
-            key={hexGenerator()}
-          >
-            <li className="text-sm font-normal md:text-lg">
-              {def.definition}
-              {'example' in def && (
-                <blockquote className="italic text-gray-500">&quot;{def.example}&quot;</blockquote>
-              )}
-            </li>
-          </ul>
+          <li className="text-sm font-normal md:text-lg" key={hexGenerator()}>
+            {def.definition}
+            {'example' in def && (
+              <blockquote className="italic text-gray-500">{`"${def.example}"`}</blockquote>
+            )}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
-    {meaning.synonyms.length > 0 && (
+    {!!meaning.synonyms.length && (
       <div className="flex items-center gap-6">
         <h3 className="text-base font-normal text-gray-500 md:text-xl">Synonyms</h3>
         <p className="text-base font-bold text-purple-600 md:text-xl">
